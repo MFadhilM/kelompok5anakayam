@@ -1,5 +1,6 @@
 # Kita akan mulai dengan mengimpor beberapa library penting yang akan kita gunakan
 from turtle import width
+from flask import Flask, request, render_template
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -9,6 +10,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 
+app = Flask(__name__)
 
 # Membangun aplikasi dashboard
 st.title("Covid-19 Dashboard For Indonesia")
@@ -91,3 +93,6 @@ def get_table():
 
 datatable = get_table()
 st.dataframe(datatable)
+
+if __name__ == '__main__':
+    app.run(debug=True)
